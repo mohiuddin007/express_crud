@@ -27,5 +27,5 @@ export const userZodValidation = z.object({
   isActive: z.boolean(),
   hobbies: z.array(z.string().min(1)),
   address: addressZodValidation,
-  orders: z.array(orderZodValidation),
+  orders: z.array(orderZodValidation).optional(),
 });

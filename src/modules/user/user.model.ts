@@ -6,6 +6,8 @@ import {
   IUser,
   UserModel,
 } from "./user.interface";
+import bcrypt from "bcrypt";
+import config from "../../config";
 
 const userFullNameSchema = new Schema<IFullName>({
   firstName: {
@@ -114,5 +116,16 @@ userSchema.statics.isUserExists = async function (userId: number) {
 
   return existingUser;
 };
+
+//middleware
+userSchema.pre("save", async function (next) {
+  const user = this;
+  user.password = await bcrypt.hash(
+    user.password,
+    Number(config.bcrypt_salt_rounds)
+  );
+  next();
+});
+
 
 export const User = model<IUser, UserModel>("user", userSchema);
