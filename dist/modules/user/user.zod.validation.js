@@ -26,5 +26,5 @@ exports.userZodValidation = zod_1.z.object({
     isActive: zod_1.z.boolean(),
     hobbies: zod_1.z.array(zod_1.z.string().min(1)),
     address: addressZodValidation,
-    orders: zod_1.z.array(orderZodValidation),
+    orders: zod_1.z.array(orderZodValidation).optional(),
 });
