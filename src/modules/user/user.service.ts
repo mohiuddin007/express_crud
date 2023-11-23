@@ -28,8 +28,15 @@ const getAUserFromDB = async (userId: number) => {
 
 const updateUserIntoDb = async (userId: number, userData: IUser) => {
   if (await User.isUserExists(userId)) {
-    const result = await User.updateOne({ userId }, userData);
-    return result;
+    const updateResult = await User.updateOne({ userId }, userData);
+
+    if (updateResult.modifiedCount > 0) {
+      const updatedUser = await User.findOne({ userId }, { password: 0 });
+
+      return updatedUser;
+    } else {
+      throw new Error("User data is the same, no update performed!");
+    }
   } else {
     throw new Error("User doesn't exist!");
   }
