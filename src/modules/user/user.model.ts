@@ -127,5 +127,9 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+userSchema.post("save", function (doc, next) {
+  doc.password = "";
+  next();
+});
 
 export const User = model<IUser, UserModel>("user", userSchema);
