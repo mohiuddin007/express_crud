@@ -6,7 +6,6 @@ const createUserIntoDb = async (userData: IUser) => {
     throw new Error("User already exists!");
   }
   const result = await User.create(userData);
-
   return result;
 };
 
