@@ -6,6 +6,7 @@ const createUserIntoDb = async (userData: IUser) => {
     throw new Error("User already exists!");
   }
   const result = await User.create(userData);
+
   return result;
 };
 
@@ -86,7 +87,11 @@ const getAllProductPriceFromDb = async (userId: number) => {
     },
     { $project: { totalPrice: 1, _id: 0 } },
   ]);
-  return result[0];
+  if(result.length > 0){
+    return result[0];
+  }else{
+    return {totalPrice: 0};
+  }
 };
 
 export const UserServices = {

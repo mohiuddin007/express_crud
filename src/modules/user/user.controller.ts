@@ -16,7 +16,10 @@ const createUser = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: err.message || "Something went wrong!",
-      error: err,
+      error: {
+        code: 500,
+        description: err.message || "Something went wrong!"
+      }
     });
   }
 };
@@ -33,7 +36,10 @@ const getAllUser = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: err.message,
-      error: err,
+      error: {
+        code: 500,
+        description: err.message || "Something went wrong!"
+      }
     });
   }
 };
@@ -51,7 +57,10 @@ const getAUserByuserId = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: err.message || "Something went wrong!",
-      error: err,
+      error: {
+        code: 500,
+        description: err.message || "Something went wrong!"
+      }
     });
   }
 };
@@ -71,7 +80,10 @@ const updateUser = async (req: Request, res: Response) => {
       res.status(500).json({
         success: false,
         message: err.message || "Something went wrong!",
-        error: err,
+        error: {
+          code: 500,
+          description: err.message || "Something went wrong!"
+        }
       });
     }
   };
@@ -89,7 +101,10 @@ const deleteAUserByuserId = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: err.message || "Something went wrong!",
-      error: err,
+      error: {
+        code: 500,
+        description: err.message || "Something went wrong!"
+      }
     });
   }
 };
@@ -108,7 +123,10 @@ const addNewOrder = async (req: Request, res: Response) => {
       res.status(500).json({
         success: false,
         message: err.message || "Something went wrong!",
-        error: err,
+        error: {
+          code: 500,
+          description: err.message || "Something went wrong!"
+        }
       });
     }
   };
@@ -126,7 +144,10 @@ const addNewOrder = async (req: Request, res: Response) => {
       res.status(500).json({
         success: false,
         message: err.message || "Something went wrong!",
-        error: err,
+        error: {
+          code: 500,
+          description: err.message || "Something went wrong!"
+        }
       });
     }
   };
@@ -144,7 +165,10 @@ const addNewOrder = async (req: Request, res: Response) => {
       res.status(500).json({
         success: false,
         message: err.message || "Something went wrong!",
-        error: err,
+        error: {
+          code: 500,
+          description: err.message || "Something went wrong!"
+        }
       });
     }
   };
