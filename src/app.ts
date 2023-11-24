@@ -11,7 +11,7 @@ app.use(cors());
 app.use('/api/users', UserRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("express crud app!");
+  res.send("express crud app running on port 5008!");
 });
 
 export default app;
