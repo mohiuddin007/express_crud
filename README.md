@@ -32,9 +32,9 @@
    ```
 *Run in production*
    ```
-    yarn start:prod 
+    yarn start
    ``` 
    or
    ```
-    npm run start:prod
+    npm run start
    ```
