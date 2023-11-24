@@ -11,7 +11,7 @@ app.use(cors());
 app.use('/api/users', UserRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("express crud!");
+  res.send("express crud app!");
 });
 
 export default app;
